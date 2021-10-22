@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <h1>Admin till portfolio</h1>
+        </header>
+        <main>
+            <div id="coursesAdmin">
+                <h2>Kurser</h2>
+
+            </div>
+            <div Add>
+                <h2>Lägg till Kurser</h2>
+                <form>
+                    <label for="namn">Namn</label>
+                    <br>
+                    <input class="text-field" type="text" name="name" id="name">
+                    <br>
+                    <label for="namn">Beskrivning</label>
+                    <br>
+                    <input class="text-field" type="text" name="description"
+                        id="description">
+                    <br>
+                    <label for="namn">Länk</label>
+                    <br>
+                    <input class="text-field" type="text" name="link" id="link">
+                    <br>
+                    <input class="button1" type="submit" value="Lägg till"
+                        id="addCourseBtn">
+                </form>
+            </div>
+
+            <div id="workAdmin">
+                <h2>Arbetslivserfarenhet</h2>
+            </div>
+            <div class="add">
+                <form>
+                    <label for="namn">Namn</label>
+                    <br>
+                    <input class="text-field" type="text" name="name" id="name">
+                    <br>
+                    <label for="namn">Beskrivning</label>
+                    <br>
+                    <input class="text-field" type="text" name="description"
+                        id="description">
+                    <br>
+                    <label for="namn">Datum</label>
+                    <br>
+                    <input class="text-field" type="text" name="date" id="date">
+                    <br>
+                    <label for="namn">Beskrivning/titel av jobb</label>
+                    <br>
+                    <input class="text-field" type="text" name="description"
+                        id="description">
+                    <br>
+                    <label for="namn">Beskrivning-text</label>
+                    <br>
+                    <input class="text-field" type="text" name="text" id="text">
+                    <br>
+                    <input class="button1" type="submit" value="Lägg till"
+                        id="addWorkBtn">
+                </form>
+            </div>
+
+        </main>
+        <footer>
+
+        </footer>
+        <script src="/js/fetch_courses.js"></script>
+        <script src="/js/fetch_work.js"></script>
+
+    </body>
+</html>
