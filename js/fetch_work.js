@@ -1,15 +1,15 @@
 //Variables to courses
 let workExperienceEl = document.getElementById("workExperienceAdmin");
-let addCourseBtn = document.getElementById("addWorkBtn");
-let nameInput = document.getElementById("name");
-let textInput = document.getElementById("text");
-let descriptionInput = document.getElementById("description");
-let dateInput = document.getElementById("date");
+let addWorkBtn = document.getElementById("addWorkBtn");
+let WorkNameInput = document.getElementById("WorkName");
+let WorkTextInput = document.getElementById("WorkText");
+let WorkDescriptionInput = document.getElementById("WorkDescription");
+let WorkDateInput = document.getElementById("WorkDate");
 
 
 //Händelselyssnare
 window.addEventListener('load', getWorkExperience);
-addCourseBtn.addEventListener('click', addWorkExperience);
+addWorkBtn.addEventListener('click', addWorkExperience);
 
 
 //Funktioner som läser in fetch anrop
@@ -17,7 +17,7 @@ addCourseBtn.addEventListener('click', addWorkExperience);
 //Funktion för att hämta kurser från rest-api
 function getWorkExperience(){
     //Gör så att denna funktion körs varje gång fönstret laddas 
-    //coursesEl.innerHTML ='';
+    workExperienceEl.innerHTML ='';
 
     fetch('http://localhost:8080/rest-projekt/workplaces.php')
     .then(response => response.json())
@@ -27,17 +27,17 @@ function getWorkExperience(){
             workExperienceEl.innerHTML += 
             "<div class='work-admin'><p>"+
             "<b>Namn: </b>" + work.name + "<br>" +
+            "<b>Datum: </b>" + work.date + "<br>" +
             "<b>Beskrivning/titel av jobb: </b>" + work.description + "<br>" +
             "<b>Beskrivning-text: </b>" + work.text + "<br>" +
-            "<b>Kursplan: </b><a href='" + course.link + "'>Länk till Kursplan</a><br>" +
-            "<b>Id: </b>" + course.id + "<br>" +
-            "</p></div> <button class='button2' id='"+ course.id +"' onClick='deleteCourse("+ course.id +")'> Radera </button> <hr>";
+            "<b>Id: </b>" + work.id + "<br>" +
+            "</p></div> <button class='button2' id='"+ work.id +"' onClick='deleteWorkExperience("+ work.id +")'> Radera </button> <hr>";
         })
     })
 }
 
-function deleteCourse(id){
-    fetch("http://localhost:8080/rest-projekt/courses.php?id="+ id, {
+function deleteWorkExperience(id){
+    fetch("http://localhost:8080/rest-projekt/workplaces.php?id="+ id, {
         method: 'DELETE',
     })
     .then(response => response.json())
@@ -49,13 +49,14 @@ function deleteCourse(id){
     })
 }
 function addWorkExperience(){
-    let name= nameInput.value;
-    let description= descriptionInput.value;
-    let link= linkInput.value;
+    let WorkName= WorkNameInput.value;
+    let WorkDate= WorkDateInput.value;
+    let WorkTextDescription = WorkTextInput.value;
+    let WorkDescrition= WorkDescriptionInput.value;
 
-    let course = {'name': name,'link': link, 'description': description};
+    let course = {'name': WorkName,'date': WorkDate, 'description': WorkDescrition, 'text':WorkTextDescription};
 
-    fetch("http://localhost:8080/rest-projekt/courses.php",{
+    fetch("http://localhost:8080/rest-projekt/workplaces.php",{
         method: 'POST',
         body: JSON.stringify(course),
     })
