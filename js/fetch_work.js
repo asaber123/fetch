@@ -42,7 +42,7 @@ function deleteWorkExperience(id){
     })
     .then(response => response.json())
     .then(data =>{
-        getCourses();
+        getWorkExperience();
     })
     .catch(error =>{
         console.log('Error:', error);
@@ -62,7 +62,7 @@ function addWorkExperience(){
     })
     .then(response => response.json())
     .then(data =>{
-        getCourses();
+        getWorkExperience();
     })
     .catch(error =>{
         console.log('Error:', error);
